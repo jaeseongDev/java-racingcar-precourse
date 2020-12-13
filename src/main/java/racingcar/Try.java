@@ -9,6 +9,10 @@ public class Try {
         this.count = count;
     }
 
+    public int getCount() {
+        return this.count;
+    }
+
     private void validateCount(int count) {
         if (count < MIN_COUNT) {
             throw new IllegalArgumentException("[ERROR] 시도 회수는 1 이상이어야 합니다.");

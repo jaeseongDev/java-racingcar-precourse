@@ -10,8 +10,10 @@ public class Game {
         try {
             String[] namesOfCars = getInputNamesOfCars(scanner);
             RacingCars cars = RacingCarsFactory.createRacingCarsByCarsNames(namesOfCars);
-            Try tryCount = getInputTryCount(scanner);
-
+            Try tryCount = getInputTry(scanner);
+            for (int i = 0; i < tryCount.getCount(); i++) {
+                cars.move();
+            }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             start(scanner);
@@ -29,14 +31,14 @@ public class Game {
         return namesOfCars;
     }
 
-    private Try getInputTryCount(Scanner scanner) {
+    private Try getInputTry(Scanner scanner) {
         try {
             String input = InputView.inputTryCount(scanner);
             int tryCount = toInt(input);
             return new Try(tryCount);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return getInputTryCount(scanner);
+            return getInputTry(scanner);
         }
     }
 

@@ -26,4 +26,10 @@ public class RacingCars {
             throw new IllegalArgumentException("[ERROR] 경주할 자동차의 이름이 중복되면 안 됩니다.");
         }
     }
+
+    public void move() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
 }
