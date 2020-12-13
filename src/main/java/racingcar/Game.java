@@ -10,6 +10,8 @@ public class Game {
         try {
             String[] namesOfCars = getInputNamesOfCars(scanner);
             RacingCars cars = RacingCarsFactory.createRacingCarsByCarsNames(namesOfCars);
+            Try tryCount = getInputTryCount(scanner);
+
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             start(scanner);
@@ -25,5 +27,24 @@ public class Game {
         System.out.println(Arrays.toString(namesOfCars));
 
         return namesOfCars;
+    }
+
+    private Try getInputTryCount(Scanner scanner) {
+        try {
+            String input = InputView.inputTryCount(scanner);
+            int tryCount = toInt(input);
+            return new Try(tryCount);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getInputTryCount(scanner);
+        }
+    }
+
+    private int toInt(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 숫자만 입력하셔야 됩니다.");
+        }
     }
 }

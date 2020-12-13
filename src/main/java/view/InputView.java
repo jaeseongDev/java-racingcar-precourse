@@ -9,4 +9,14 @@ public class InputView {
         return scanner.nextLine();
     }
 
+    public static String inputTryCount(Scanner scanner) {
+        System.out.println("시도할 회수는 몇회인가요?");
+        String input = scanner.nextLine();
+        printEmptyLine();
+        return input;
+    }
+
+    private static void printEmptyLine() {
+        System.out.println();
+    }
 }
