@@ -29,10 +29,6 @@ public class Game {
     private String[] getInputNamesOfCars(Scanner scanner) {
         String input = InputView.inputNamesOfCars(scanner);
         String[] namesOfCars = input.split(",");
-
-        // TODO - 디버깅용 코드
-        System.out.println(Arrays.toString(namesOfCars));
-
         return namesOfCars;
     }
 

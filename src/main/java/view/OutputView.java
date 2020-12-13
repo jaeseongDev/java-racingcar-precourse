@@ -21,9 +21,6 @@ public class OutputView {
 
     public static void printWinner(RacingCars cars) {
         List<String> winners = cars.getWinners();
-        // TODO - 디버깅용
-        System.out.println(winners);
-
         System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 
