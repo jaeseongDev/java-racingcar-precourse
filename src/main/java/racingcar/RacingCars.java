@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingCars {
@@ -31,5 +32,21 @@ public class RacingCars {
         for (Car car : cars) {
             car.move();
         }
+    }
+
+    public List<Integer> getPositionsOfCars() {
+        List<Integer> positionsOfCars = new ArrayList<>();
+        for (Car car : cars) {
+            positionsOfCars.add(car.getPosition());
+        }
+        return positionsOfCars;
+    }
+
+    public List<String> getNamesOfCars() {
+        List<String> namesOfCars = new ArrayList<>();
+        for (Car car : cars) {
+            namesOfCars.add(car.getName());
+        }
+        return namesOfCars;
     }
 }

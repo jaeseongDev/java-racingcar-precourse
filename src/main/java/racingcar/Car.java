@@ -4,7 +4,7 @@ import java.util.Objects;
 import utils.RandomUtils;
 
 public class Car {
-
+    private static final int ONE_STEP = 1;
     private static final int MIN_CAR_NAME_LENGTH = 1;
     private static final int MAX_CAR_NAME_LENGTH = 5;
     private static final int MIN_RANDOM_VALUE = 0;
@@ -16,6 +16,14 @@ public class Car {
     public Car(String name) {
         validateCarName(name);
         this.name = name.trim();
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     private void validateCarName(String name) {
@@ -31,7 +39,7 @@ public class Car {
     public void move() {
         int randomValue = RandomUtils.nextInt(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
         if (randomValue >= MIN_VALUE_TO_MOVE) {
-            position += randomValue;
+            position += ONE_STEP;
         }
     }
 
