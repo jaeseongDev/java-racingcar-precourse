@@ -1,5 +1,6 @@
 package view;
 
+import java.util.Collections;
 import java.util.List;
 import racingcar.RacingCars;
 
@@ -18,8 +19,12 @@ public class OutputView {
         printEmptyLine();
     }
 
-    private static void printPosition(int positions) {
+    public static void printWinner(RacingCars cars) {
+        List<String> winners = cars.getWinners();
+        // TODO - 디버깅용
+        System.out.println(winners);
 
+        System.out.println("최종 우승자: " + String.join(", ", winners));
     }
 
     private static void printEmptyLine() {

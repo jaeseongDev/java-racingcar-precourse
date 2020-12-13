@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingCars {
@@ -40,6 +41,19 @@ public class RacingCars {
             positionsOfCars.add(car.getPosition());
         }
         return positionsOfCars;
+    }
+
+    public List<String> getWinners() {
+        List<Integer> positionsOfCars = getPositionsOfCars();
+        List<String> namesOfCars = getNamesOfCars();
+        List<String> winners = new ArrayList<>();
+        int maxPosition = Collections.max(positionsOfCars);
+        for (int i = 0; i < namesOfCars.size(); i++) {
+            if (maxPosition == positionsOfCars.get(i)) {
+                winners.add(namesOfCars.get(i));
+            }
+        }
+        return winners;
     }
 
     public List<String> getNamesOfCars() {

@@ -17,7 +17,7 @@ public class Game {
                 cars.move();
                 OutputView.printResultsPerTry(cars);
             }
-
+            OutputView.printWinner(cars);
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
