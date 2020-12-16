@@ -1,6 +1,6 @@
 package racingcar;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import view.InputView;
 import view.OutputView;
@@ -11,12 +11,13 @@ public class Game {
         try {
             String[] namesOfCars = getInputNamesOfCars(scanner);
             RacingCars cars = RacingCarsFactory.createRacingCarsByCarsNames(namesOfCars);
+            List<Result> results = cars.getResults();
             Try tryCount = getInputTry(scanner);
             for (int i = 0; i < tryCount.getCount(); i++) {
                 cars.race();
-                OutputView.printResults(cars.getResults());
+                OutputView.printResults(results);
             }
-            OutputView.printWinner(cars);
+            OutputView.printWinner(Winner.getNamesOfWinners(results));
 
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

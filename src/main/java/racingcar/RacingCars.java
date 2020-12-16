@@ -39,34 +39,9 @@ public class RacingCars {
         results.add(result);
     }
 
-    public List<Integer> getPositionsOfCars() {
-        List<Integer> positionsOfCars = new ArrayList<>();
-        for (Car car : cars) {
-            positionsOfCars.add(car.getPosition());
-        }
-        return positionsOfCars;
-    }
 
-    public List<String> getWinners() {
-        List<Integer> positionsOfCars = getPositionsOfCars();
-        List<String> namesOfCars = getNamesOfCars();
-        List<String> winners = new ArrayList<>();
-        int maxPosition = Collections.max(positionsOfCars);
-        for (int i = 0; i < namesOfCars.size(); i++) {
-            if (maxPosition == positionsOfCars.get(i)) {
-                winners.add(namesOfCars.get(i));
-            }
-        }
-        return winners;
-    }
 
-    public List<String> getNamesOfCars() {
-        List<String> namesOfCars = new ArrayList<>();
-        for (Car car : cars) {
-            namesOfCars.add(car.getName());
-        }
-        return namesOfCars;
-    }
+
 
     public List<Result> getResults() {
         return results;
