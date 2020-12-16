@@ -7,6 +7,7 @@ import java.util.List;
 public class RacingCars {
     private static final int MIN_RACING_CARS_SIZE = 2;
     private List<Car> cars;
+    private List<Result> results = new ArrayList<>();
 
     public RacingCars(List<Car> cars) {
         validateRacingCarsSize(cars);
@@ -29,10 +30,13 @@ public class RacingCars {
         }
     }
 
-    public void move() {
+    public void race() {
+        Result result = new Result();
         for (Car car : cars) {
             car.move();
+            result.put(car.getName(), car.getPosition());
         }
+        results.add(result);
     }
 
     public List<Integer> getPositionsOfCars() {
@@ -62,5 +66,9 @@ public class RacingCars {
             namesOfCars.add(car.getName());
         }
         return namesOfCars;
+    }
+
+    public List<Result> getResults() {
+        return results;
     }
 }

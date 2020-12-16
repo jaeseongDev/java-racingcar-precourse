@@ -12,10 +12,9 @@ public class Game {
             String[] namesOfCars = getInputNamesOfCars(scanner);
             RacingCars cars = RacingCarsFactory.createRacingCarsByCarsNames(namesOfCars);
             Try tryCount = getInputTry(scanner);
-            OutputView.printResult();
             for (int i = 0; i < tryCount.getCount(); i++) {
-                cars.move();
-                OutputView.printResultsPerTry(cars);
+                cars.race();
+                OutputView.printResults(cars.getResults());
             }
             OutputView.printWinner(cars);
 
@@ -23,7 +22,6 @@ public class Game {
             System.out.println(e.getMessage());
             start(scanner);
         }
-
     }
 
     private String[] getInputNamesOfCars(Scanner scanner) {
